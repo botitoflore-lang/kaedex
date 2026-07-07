@@ -8,7 +8,7 @@ let listaPokemon = []; // Guardará los datos cargados del JSON
 async function cargarPokedex() {
   try {
     // Busca el archivo de datos local
-    const respuesta = await fetch('data.json');
+    const respuesta = await fetch('./data.json');
     listaPokemon = await respuesta.json();
     
     // Renderiza todos los Pokémon al iniciar
