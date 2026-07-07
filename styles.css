@@ -1,1 +1,160 @@
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  color: #333;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  color: #e63946;
+  margin-bottom: 15px;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 20px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#search-input:focus {
+  border-color: #e63946;
+}
+
+/* Rejilla de la Pokédex */
+.pokedex-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tarjeta del Pokémon */
+.pokemon-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.sprite-container {
+  background-color: #f8f9fa;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.pokemon-img {
+  max-width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.pokemon-name {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+/* Tipos */
+.types-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.type-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* Colores dinámicos por tipo por defecto */
+.type-badge.hielo { background-color: #74c0fc; }
+.type-badge.fantasma { background-color: #7048e8; }
+.type-badge.fuego { background-color: #ff922b; }
+.type-badge.planta { background-color: #51cf66; }
+
+.pokemon-desc {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+/* Estadísticas (Stats) */
+.stats-container {
+  width: 100%;
+  margin-top: auto;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+}
+
+.stat-name {
+  width: 60px;
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  width: 35px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.stat-bar-bg {
+  flex-grow: 1;
+  background-color: #e9ecef;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.stat-bar-fill {
+  background-color: #4dabf7;
+  height: 100%;
+  border-radius: 4px;
+  width: 0%; /* Se llena con JavaScript */
+  transition: width 0.5s ease-out;
+}
