@@ -108,22 +108,22 @@ header h1 {
   box-shadow: 0 8px 30px rgba(0,0,0,0.3);
 }
 
-/* Contenedor de Imagen */
+/* Ajusta el contenedor para que no limite la imagen */
 .sprite-container {
   width: 100%;
-  padding-bottom: 75%; /* Ratio de imagen más cuadrado */
+  height: 250px;       /* O la altura fija que tengas asignada a esa zona */
+  overflow: hidden;    /* Corta cualquier excedente si la foto es muy grande */
   position: relative;
-  background-color: rgba(255,255,255,0.02); /* Sutil contraste */
+  border-top-left-radius: 12px;  /* Mantiene las esquinas redondeadas de arriba */
+  border-top-right-radius: 12px;
 }
 
-.pokemon-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
+/* Fuerza a la imagen a rellenar TODO el espacio */
+.sprite-container .pokemon-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;   /* ¡ESTA ES LA MAGIA! Rellena todo el espacio sin deformar la foto */
+  object-position: center; /* Centra el enfoque de la imagen */
 }
 
 /* Sección de Detalles */
