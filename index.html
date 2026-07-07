@@ -1,21 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Pokédex Automática</title>
+  <title>Mi Pokédex - Estilo Premium</title>
+  
+  <!-- Fuente moderna Inter (como en la referencia) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Cargar iconos de FontAwesome para estadísticas -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <header>
-    <h1>Mi Pokédex</h1>
-    <input type="text" id="search-input" placeholder="Buscar Pokémon por nombre o tipo...">
+    <h1>Tu Pokédex</h1>
+    <div class="search-container">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="search-input" placeholder="Buscar por nombre o tipo...">
+    </div>
   </header>
 
   <main class="pokedex-grid" id="pokedex-grid">
-    <!-- Las tarjetas se generarán aquí automáticamente con JavaScript -->
+    <!-- Las tarjetas premium se generarán aquí -->
   </main>
 
   <script src="app.js"></script>
