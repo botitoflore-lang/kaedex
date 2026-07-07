@@ -1,123 +1,207 @@
+/* --- Variables de Color (Inspiradas en la referencia) --- */
+:root {
+  --bg-color: #121417;          /* Fondo muy oscuro */
+  --card-bg: #1e2229;           /* Fondo de la tarjeta */
+  --header-bg: #191c21;          /* Fondo del buscador */
+  --text-main: #ffffff;         /* Texto principal */
+  --text-muted: #8e94a3;        /* Texto secundario/apagado */
+  
+  /* Colores de Stats de la Referencia (image_0.png) */
+  --stat-purple: #9d38f2;       /* Epic / SpAtk */
+  --stat-yellow: #f8c12f;       /* Production / Atk */
+  --stat-teal: #1ebdbd;         /* SpDef */
+  --stat-red: #ea2e3a;          /* Speed */
+  --stat-pink: #df14a7;         /* Happiness / HP / Def */
+  --stat-orange: #f28238;       /* Stats secundarios */
+  
+  /* Botones y otros */
+  --btn-green: #04b86b;
+  --btn-green-hover: #03a05d;
+  --btn-delete: #d11a2a;
+}
 
+/* --- Estilos Globales --- */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', sans-serif; /* Usar Inter */
 }
 
 body {
-  background-color: #f4f6f9;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-main);
   padding: 20px;
 }
 
 header {
-  text-align: center;
+  background-color: var(--header-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 header h1 {
-  color: #e63946;
+  color: #e63946; /* Mantener tu color distintivo */
   margin-bottom: 15px;
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
 }
 
 #search-input {
   width: 100%;
-  max-width: 500px;
-  padding: 12px 20px;
-  border: 2px solid #ddd;
+  padding: 12px 12px 12px 45px;
+  background-color: #2a2e38;
+  border: 1px solid #363b46;
   border-radius: 25px;
-  font-size: 1rem;
+  color: var(--text-main);
+  font-size: 0.95rem;
   outline: none;
-  transition: border-color 0.3s;
+  transition: all 0.3s ease;
 }
 
 #search-input:focus {
   border-color: #e63946;
+  box-shadow: 0 0 10px rgba(230, 57, 70, 0.3);
 }
 
-/* Rejilla de la Pokédex */
+/* --- Rejilla de la Pokédex (Más compacta) --- */
 .pokedex-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Tarjeta del Pokémon */
+/* --- Tarjeta del Pokémon Premium (image_0.png) --- */
 .pokemon-card {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  background: var(--card-bg);
+  border-radius: 16px;
   overflow: hidden;
-  padding: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .pokemon-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
 }
 
+/* Contenedor de Imagen */
 .sprite-container {
-  background-color: #f8f9fa;
   width: 100%;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding-bottom: 75%; /* Ratio de imagen más cuadrado */
+  position: relative;
+  background-color: rgba(255,255,255,0.02); /* Sutil contraste */
 }
 
 .pokemon-img {
-  max-width: 150px;
-  height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  max-height: 90%;
   object-fit: contain;
 }
 
-.pokemon-name {
-  font-size: 1.4rem;
+/* Sección de Detalles */
+.details-section {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.poke-num-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 8px;
+}
+
+.pokemon-number {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.pokemon-name {
+  color: var(--text-main);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.pokemon-title {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+  text-align: center;
 }
 
 /* Tipos */
 .types-container {
   display: flex;
+  justify-content: center;
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .type-badge {
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
   color: white;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-/* Colores dinámicos por tipo por defecto */
+/* Colores de tipo por defecto (puedes añadir iconos específicos aquí en el JS) */
 .type-badge.hielo { background-color: #74c0fc; }
 .type-badge.fantasma { background-color: #7048e8; }
-.type-badge.fuego { background-color: #ff922b; }
-.type-badge.planta { background-color: #51cf66; }
+/* ... más colores si tienes más tipos */
 
+/* Descripción corta */
 .pokemon-desc {
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 0.8rem;
+  color: var(--text-muted);
   text-align: center;
-  margin-bottom: 15px;
-  line-height: 1.4;
+  margin-bottom: 16px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limitar a 2 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* Estadísticas (Stats) */
+/* --- Estadísticas Premium con Iconos (Como en la referencia) --- */
 .stats-container {
   width: 100%;
   margin-top: auto;
@@ -126,35 +210,99 @@ header h1 {
 .stat-row {
   display: flex;
   align-items: center;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-size: 0.85rem;
 }
 
+.stat-icon {
+  width: 24px;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.stat-value-pair {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 32px); /* Ancho restante */
+  margin-bottom: 4px;
+}
+
 .stat-name {
-  width: 60px;
-  font-weight: bold;
-  color: #555;
-  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--text-muted);
 }
 
 .stat-value {
-  width: 35px;
+  font-weight: 700;
   text-align: right;
-  margin-right: 10px;
+  width: 45px;
+}
+
+/* Barras de Progresión */
+.stat-bar-wrapper {
+  margin-left: 32px;
+  width: calc(100% - 32px);
 }
 
 .stat-bar-bg {
-  flex-grow: 1;
-  background-color: #e9ecef;
-  height: 8px;
-  border-radius: 4px;
+  background-color: #363b46;
+  height: 6px;
+  border-radius: 3px;
   overflow: hidden;
 }
 
 .stat-bar-fill {
-  background-color: #4dabf7;
   height: 100%;
-  border-radius: 4px;
-  width: 0%; /* Se llena con JavaScript */
-  transition: width 0.5s ease-out;
+  border-radius: 3px;
+  width: 0%; /* Animación en JS */
+  transition: width 0.6s ease-out;
+}
+
+/* --- Botones de Acción --- */
+.action-buttons {
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.main-btn {
+  flex-grow: 1;
+  background-color: var(--btn-green);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.main-btn:hover {
+  background-color: var(--btn-green-hover);
+}
+
+.delete-btn {
+  background-color: #2a2e38;
+  color: var(--btn-delete);
+  border: 1px solid #363b46;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #d11a2a20; /* Sutil fondo rojo */
+  border-color: var(--btn-delete);
 }
