@@ -372,11 +372,33 @@ header h1 {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  width: 100%;
 }
 
+/* Fuerza a la imagen del modal a comportarse de forma independiente */
 .modal-detailed-body .pokemon-img {
-  max-width: 200px;
-  height: 200px;
+  position: relative; /* Quita el absolute que rompía el diseño */
+  top: unset;
+  left: unset;
+  transform: unset;
+  max-width: 100%;
+  width: 220px;       /* Tamaño ideal para que luzca el arte */
+  height: auto;       /* Mantiene la proporción de tu foto vertical sin estirarla */
+  object-fit: contain;
+  border-radius: 12px; /* Redondeado sutil para que combine con el estilo */
+}
+
+.modal-detailed-body .pokemon-desc {
+  display: block; 
+  -webkit-line-clamp: unset;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  background-color: rgba(255,255,255,0.02);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #2a2e38;
+  text-align: center;
+  width: 100%;
 }
 
 .modal-detailed-body .pokemon-desc {
