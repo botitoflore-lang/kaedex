@@ -174,19 +174,23 @@ function abrirModalDetalles(poke) {
     `;
   }).join('');
 
+  // NUEVA ESTRUCTURA: Separa la cabecera en una fila (imagen + textos a la derecha)
   modalBody.innerHTML = `
     <div class="modal-detailed-body">
-      <img class="pokemon-img" src="${rutaImagen}" alt="${poke.name}" onerror="this.src='https://via.placeholder.com/200?text=Sin+Foto'">
-      <div class="poke-num-name">
-        <span class="pokemon-number">#${poke.number}</span>
-        <h2 class="pokemon-name" style="font-size:1.8rem;">${poke.name}</h2>
+      <div class="modal-header-row">
+        <img class="pokemon-img" src="${rutaImagen}" alt="${poke.name}" onerror="this.src='https://via.placeholder.com/200?text=Sin+Foto'">
+        <div class="modal-info-meta">
+          <span class="pokemon-number">#${poke.number}</span>
+          <h2 class="pokemon-name">${poke.name}</h2>
+          <p class="pokemon-title">${poke.title}</p>
+        </div>
       </div>
-      <p class="pokemon-title" style="margin-top:-10px;">${poke.title}</p>
       
+      <!-- Caja gris contenedora para la descripción del Pokémon -->
       <p class="pokemon-desc">${poke.description}</p>
       
-      <div class="stats-container" style="width: 100%;">
-        <h3 style="font-size:1rem; margin-bottom:15px; color: var(--text-main); text-transform:uppercase; letter-spacing:1px;">Estadísticas Base</h3>
+      <div class="stats-container">
+        <h3>Estadísticas Base</h3>
         ${htmlStats}
       </div>
     </div>
