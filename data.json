@@ -30,5 +30,21 @@
       "spDef": 70,
       "spd": 110
     }
+  },
+  {
+    "id": "ivi",
+    "number": "0001",
+    "name": "Ivi",
+    "title": "Pokémon Evolución",
+    "types": ["Normal"],
+    "description": "Ivi",
+    "stats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 110,
+      "spAtk": 130,
+      "spDef": 95,
+      "spd": 65
+    }
   }
 ]
