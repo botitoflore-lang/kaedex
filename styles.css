@@ -411,3 +411,52 @@ header h1 {
   border-radius: 10px;
   border: 1px solid #2a2e38;
 }
+
+/* --- ADAPTACIÓN PARA PANTALLAS MÓVILES --- */
+@media (max-width: 600px) {
+  /* Hace que el contenedor principal tenga 2 columnas perfectas */
+  #pokedex-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important; /* Espacio más pequeño entre tarjetas */
+    padding: 10px !important;
+  }
+
+  /* Achica las tarjetas para que entren bien en su columna */
+  .pokemon-card {
+    border-radius: 12px !important;
+  }
+
+  /* Reduce la altura del contenedor de la imagen para que no quede gigante */
+  .sprite-container {
+    height: 140px !important; /* Ajuste ideal para que se vea compacto en el celular */
+  }
+
+  /* Ajusta los textos para que no se amontonen */
+  .pokemon-name {
+    font-size: 1.1rem !important; /* Nombre un poco más chico */
+  }
+  
+  .pokemon-title {
+    font-size: 0.75rem !important; /* "Pokémon Tierra Gélida" más sutil */
+  }
+
+  .pokemon-desc {
+    font-size: 0.75rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important; /* Recorta la descripción a máximo 2 líneas para ahorrar espacio */
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  /* Hace los botones de acción más compactos */
+  .action-buttons {
+    padding: 8px !important;
+    gap: 6px !important;
+  }
+  
+  .main-btn {
+    font-size: 0.75rem !important;
+    padding: 6px 10px !important;
+  }
+}
